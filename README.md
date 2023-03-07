@@ -1,4 +1,4 @@
-## Public repo to publish portfolion with gh-pages
+## Public repo to publish portfolio with gh-pages
 
 It contains only a github action to publish the portfolio on gh-pages.
 
