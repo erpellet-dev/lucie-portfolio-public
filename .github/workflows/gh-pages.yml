@@ -34,7 +34,7 @@ jobs:
         with:
           repository: erpellet-dev/lucie-portfolio-dev
           token: ${{ secrets.PORTFOLIO_PAT }}
-          ref: dev/gh-pages
+          ref: public/prod
           path: portfolio
 
       - name: Setup Pages
