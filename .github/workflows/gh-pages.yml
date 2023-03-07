@@ -6,6 +6,9 @@ on:
   push:
     branches: ["main"]
   
+  # Trigger on repository dispatch events
+  repository_dispatch:
+    types: [deploy-pages]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -32,9 +35,9 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
         with:
-          repository: erpellet-dev/lucie-portfolio-dev
-          token: ${{ secrets.PORTFOLIO_PAT }}
-          ref: public/prod
+          repository: ${{ vars.PORTFOLIO_REPO }}
+          token: ${{ secrets.PORTFOLIO_TOKEN }}
+          ref: ${{ vars.PORTFOLIO_BRANCH }}
           path: portfolio
 
       - name: Setup Pages
@@ -50,4 +53,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+        
 
